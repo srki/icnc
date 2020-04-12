@@ -176,7 +176,6 @@ tbbver = os.path.basename( tbbroot )
 pwd = os.getcwd()
 docdir = os.path.join(reldir, 'doc')
 pagesdir = 'icnc.github.io'
-os.chdir('..')
 if os.path.isdir(pagesdir) == False:
     exe_cmd(("git clone --depth=1 https://github.com/icnc/"+pagesdir).split())
 else:
@@ -184,7 +183,7 @@ else:
     exe_cmd(['git', 'pull'])
     os.chdir('..')
 os.chdir(pwd)
-orgdir = os.path.join('..', pagesdir)
+orgdir = os.path.join('.', pagesdir)
 shutil.copy(os.path.join(orgdir, 'LICENSE'), reldir)
 shutil.copy(os.path.join(orgdir, 'README.md'), os.path.join(reldir, 'README')) 
 if os.path.isdir(docdir) == False:
